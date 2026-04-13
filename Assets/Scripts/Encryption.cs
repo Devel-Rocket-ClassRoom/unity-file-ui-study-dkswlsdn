@@ -1,5 +1,7 @@
 using System.IO;
+using UnityEditor.Profiling.Memory.Experimental;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Encryption : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class Encryption : MonoBehaviour
     string decryptPath;
 
     byte key = 0xAB;
+    bool isEncrypted = false;
 
     void Start()
     {
@@ -23,41 +26,49 @@ public class Encryption : MonoBehaviour
         encryptPath = Path.Combine(path, "encrypt.txt");
         decryptPath = Path.Combine(path, "decrypt.txt");
 
-            File.WriteAllText(secretPath, "Hello World!!!");
+        File.WriteAllText(secretPath, "Hello World!!!");
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && !isEncrypted)
         {
             Debug.Log("암호화");
 
             using (FileStream fs = File.OpenRead(secretPath))
+            using (FileStream stream = new FileStream(encryptPath, FileMode.Create))
             {
-                int b = fs.ReadByte();
-                b = b ^ key;
-
-                using (FileStream stream = new FileStream(encryptPath, FileMode.Create))
+                while (true)
                 {
+                    int b = fs.ReadByte();
+                    if (b == -1) { break; }
+
+                    b = b ^ key;
+
                     stream.WriteByte((byte)b);
+                    isEncrypted = true;
                 }
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D) && isEncrypted)
         {
             Debug.Log("복호화");
 
             using (FileStream fs = File.OpenRead(encryptPath))
+            using (FileStream stream = new FileStream(decryptPath, FileMode.Create))
             {
-                int b = fs.ReadByte();
-                b = b ^ key;
-
-                using (FileStream stream = new FileStream(decryptPath, FileMode.Create))
+                while (true)
                 {
+                    int b = fs.ReadByte();
+                    if (b == -1) { break; }
+
+                    b = b ^ key;
+
                     stream.WriteByte((byte)b);
+                    isEncrypted = false;
                 }
             }
         }
@@ -66,18 +77,29 @@ public class Encryption : MonoBehaviour
         {
             Debug.Log("정상 출력");
 
-            using (FileStream fs = File.OpenRead(encryptPath))
+            using (FileStream fs = File.OpenRead(decryptPath))
             {
                 string text = string.Empty;
                 int b = 0;
 
-                while (b != -1)
+                while (true)
                 {
                     b = fs.ReadByte();
-                    text += (char)b;
+
+                    if (b == -1)
+                    {
+                        Debug.Log(text);
+                        break;
+                    }
+
+                    text = text + (char)b;
                 }
 
-                Debug.Log(text);
+                if (File.ReadAllText(decryptPath).Equals(File.ReadAllText(secretPath)))
+                {
+                    Debug.Log("원본과 일치");
+                }
+                else { Debug.Log("원본과 불일치"); }
             }
         }
 
@@ -85,18 +107,23 @@ public class Encryption : MonoBehaviour
         {
             Debug.Log("비정상 출력");
 
-            using (FileStream fs = File.OpenRead(decryptPath))
+            using (FileStream fs = File.OpenRead(encryptPath))
             {
                 string text = string.Empty;
                 int b = 0;
 
-                while (b != -1)
+                while (true)
                 {
                     b = fs.ReadByte();
-                    text += (char)b;
-                }
 
-                Debug.Log(text);
+                    if (b == -1)
+                    {
+                        Debug.Log(text);
+                        break;
+                    }
+
+                    text = text + (char)b;
+                }
             }
         }
     }
