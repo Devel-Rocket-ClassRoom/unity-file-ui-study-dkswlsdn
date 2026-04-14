@@ -1,0 +1,22 @@
+﻿Id,String
+HELLO,やあ
+BYE,じゃあな
+YOU DIE,あなたは死ぬ
+Item1Name,剣
+Item2Name,盾
+Item3Name,弓
+Item4Name,ポーション
+Item1Desc,これは剣だ。
+Item2Desc,これは盾だ。
+Item3Desc,これは弓だ。
+Item4Desc,これはポーションだ。
+Character1Name,ウィリアム
+Character2Name,クリス
+Character3Name,アリス
+Character4Name,タラ
+Character1Desc,彼は戦士だ。
+Character2Desc,彼は射手だ。
+Character3Desc,彼女は魔法使いだ。
+Character4Desc,彼女はタンカーです。
+Attack,攻撃力
+Defense,防御力

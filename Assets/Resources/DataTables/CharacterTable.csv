@@ -1,0 +1,5 @@
+﻿Id,Name,Desc,Attack,Defense,Icon
+Character1,Character1Name,Character1Desc,100,80,Icon_Sword06
+Character2,Character2Name,Character2Desc,150,40,Icon_Bow01
+Character3,Character3Name,Character3Desc,80,60,Icon_Star01_l
+Character4,Character4Name,Character4Desc,40,200,Icon_Shield01
