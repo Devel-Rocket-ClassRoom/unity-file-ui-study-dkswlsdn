@@ -8,6 +8,5 @@ public class ChangeLanguage : MonoBehaviour
     public void OnClick()
     {
         Variables.Languages = languages;
-        Debug.Log(Variables.Languages);
     }
 }

@@ -7,8 +7,8 @@ public class ShowCharacterDescription : MonoBehaviour
     public Image image;
     public Localization cName;
     public Localization desc;
-    public Localization attack;
-    public Localization defense;
+    public TextMeshProUGUI attack;
+    public TextMeshProUGUI defense;
 
     public void OnClick()
     {
@@ -22,8 +22,8 @@ public class ShowCharacterDescription : MonoBehaviour
         image.sprite = data.SpriteIcon;
         cName.ChangeText(data.Name);
         desc.ChangeText(data.Desc);
-        attack.ChangeText("Attack", data.Attack);
-        defense.ChangeText("Defense", data.Defense);
+        attack.text = data.Attack;
+        defense.text = data.Defense;
     }
 
     public void SetCharacterData(string id)

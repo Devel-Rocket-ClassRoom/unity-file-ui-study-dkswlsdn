@@ -51,14 +51,6 @@ public class Localization : MonoBehaviour
         text.text = value;
     }
 
-    public virtual void ChangeText(string txt, string amount)
-    {
-        message = txt ?? "Unknown";
-        StringTable table = DataTableManager.StringTable;
-        string value = table.Get(message ?? string.Empty);
-        text.text = value + " : " + amount;
-    }
-
 #if UNITY_EDITOR
     private void OnChangeLanguage(Languages lang)
     {
