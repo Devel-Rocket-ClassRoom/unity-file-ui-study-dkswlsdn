@@ -192,7 +192,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD0C0\uB77C"
+  m_text: Tara
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2845a34d3a9862140bb8eebbadb0cfc9, type: 2}
   m_sharedMaterial: {fileID: -1986732474847351195, guid: 2845a34d3a9862140bb8eebbadb0cfc9, type: 2}
@@ -345,7 +345,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC568\uB9AC\uC2A4"
+  m_text: Alice
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2845a34d3a9862140bb8eebbadb0cfc9, type: 2}
   m_sharedMaterial: {fileID: -1986732474847351195, guid: 2845a34d3a9862140bb8eebbadb0cfc9, type: 2}
@@ -707,13 +707,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 178810954}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdc4b278630d7ad45be81bcc0b4e91ef, type: 3}
+  m_Script: {fileID: 11500000, guid: efaba391e7c4ecd4cb2fa9ec8a3c3aac, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HeaderLocalization
+  m_EditorClassIdentifier: Assembly-CSharp::Localization
   languages: 0
   message: Defense
   text: {fileID: 178810957}
-  header: {fileID: 1479574087}
 --- !u!1 &198631151
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,7 +939,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD06C\uB9AC\uC2A4"
+  m_text: Chris
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2845a34d3a9862140bb8eebbadb0cfc9, type: 2}
   m_sharedMaterial: {fileID: -1986732474847351195, guid: 2845a34d3a9862140bb8eebbadb0cfc9, type: 2}
@@ -2934,7 +2933,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC70C\uB9AC\uC5C4"
+  m_text: William
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2845a34d3a9862140bb8eebbadb0cfc9, type: 2}
   m_sharedMaterial: {fileID: -1986732474847351195, guid: 2845a34d3a9862140bb8eebbadb0cfc9, type: 2}
@@ -5231,13 +5230,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1540816942}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdc4b278630d7ad45be81bcc0b4e91ef, type: 3}
+  m_Script: {fileID: 11500000, guid: efaba391e7c4ecd4cb2fa9ec8a3c3aac, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HeaderLocalization
+  m_EditorClassIdentifier: Assembly-CSharp::Localization
   languages: 0
   message: Attack
   text: {fileID: 1540816945}
-  header: {fileID: 404216721}
 --- !u!1 &1572341345
 GameObject:
   m_ObjectHideFlags: 0
