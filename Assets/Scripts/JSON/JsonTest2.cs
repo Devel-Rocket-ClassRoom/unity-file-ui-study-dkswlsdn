@@ -14,7 +14,7 @@ public class JsonTest2 : MonoBehaviour
     public List<GameObject> BasicShape;
     private Dictionary<GameObject, SomeClass> shapeList;
 
-    private float RandomPos => UnityEngine.Random.Range(-3f, 3f);
+    private float RandomPos => UnityEngine.Random.Range(-20f, 20f);
     private float Random01 => UnityEngine.Random.Range(0f, 1f);
 
     private void Awake()
