@@ -29,3 +29,8 @@ public class WindowManager : MonoBehaviour
         return windows[currentWindowId];
     }
 }
+
+public enum Window
+{
+    Title, GameOver, NewGame, Difficulty
+}

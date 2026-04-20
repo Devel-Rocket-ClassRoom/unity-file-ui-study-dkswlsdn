@@ -5,7 +5,7 @@ public class GenericWindow : MonoBehaviour
 {
     public GameObject firstSelected;
 
-    private WindowManager windowManager;
+    protected WindowManager windowManager;
     public void Init(WindowManager mgr)
     {
         windowManager = mgr;

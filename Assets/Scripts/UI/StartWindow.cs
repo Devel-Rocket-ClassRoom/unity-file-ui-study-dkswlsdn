@@ -31,16 +31,16 @@ public class StartWindow : GenericWindow
 
     public void OnContinue()
     {
-        Debug.Log("OnContinue");
+        windowManager.Open((int)Window.GameOver);
     }
 
     public void OnNewGame()
     {
-        Debug.Log("OnNewGame");
+        windowManager.Open((int)Window.NewGame);
     }
 
     public void OnOption()
     {
-        Debug.Log("OnOption");
+        windowManager.Open((int)Window.Difficulty);
     }
 }
