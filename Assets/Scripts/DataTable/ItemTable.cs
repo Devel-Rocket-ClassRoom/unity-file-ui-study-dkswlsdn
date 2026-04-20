@@ -37,6 +37,12 @@ public class ItemTable : DataTable
          
         return table[id];
     }
+
+    public ItemData GetRandom()
+    {
+        var keyList = ItemKeys;
+        return Get(keyList[Random.Range(0, keyList.Count)]);
+    }
 }
 
 public class ItemData

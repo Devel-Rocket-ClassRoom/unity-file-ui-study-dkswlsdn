@@ -1,4 +1,5 @@
 ﻿Id,String
+, 
 HELLO,やあ
 BYE,じゃあな
 YOU DIE,あなたは死ぬ
@@ -20,3 +21,9 @@ Character3Desc,彼女は魔法使いだ。
 Character4Desc,彼女はタンカーです。
 Attack,攻撃力
 Defense,防御力
+Type,タイプ
+Equip,装備する
+Cost,料金
+Weapon,武器
+Value,価値
+Consumable,消耗品

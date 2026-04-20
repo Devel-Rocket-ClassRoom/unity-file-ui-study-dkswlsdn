@@ -1,4 +1,5 @@
 ﻿Id,String
+, 
 HELLO,Hello~
 BYE,Bye~
 YOU DIE,You Die...
@@ -20,3 +21,9 @@ Character3Desc,She is wizard.
 Character4Desc,She is tank.
 Attack,Attack
 Defense,Defense
+Type,Type
+Value,Value
+Cost,Cost
+Weapon,Weapon
+Equip,Equip
+Consumable,Consumable

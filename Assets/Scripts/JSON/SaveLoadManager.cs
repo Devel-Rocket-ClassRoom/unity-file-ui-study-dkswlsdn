@@ -1,5 +1,5 @@
 using UnityEngine;
-using SaveDataVC = SaveDataV3;
+using SaveDataVC = SaveDataV4;
 using Newtonsoft.Json;
 using System.IO;
 using System;
@@ -21,7 +21,7 @@ public static class SaveLoadManager
         "Save2",
         "Save3",
     };
-    public static int SaveDataVersion { get; } = 3;
+    public static int SaveDataVersion { get; } = 4;
     public static SaveDataVC Data { get; set; } = new SaveDataVC();
 
     private static JsonSerializerSettings settings = new JsonSerializerSettings()
