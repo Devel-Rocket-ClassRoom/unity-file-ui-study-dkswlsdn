@@ -12,9 +12,22 @@ public class CharacterSummary : MonoBehaviour
     public TextMeshProUGUI summaryAttack;
     public TextMeshProUGUI summaryDefense;
 
+    public Button weaponButton;
     public Image weaponIcon;
     public TextMeshProUGUI weaponName;
     public TextMeshProUGUI weaponValue;
+
+    public InventoryLoad_Character inventoryScroll;
+
+    private void Awake()
+    {
+        weaponButton.onClick.AddListener(OpenInventory);
+    }
+
+    public void SetSummary()
+    {
+        SetSummary(characterData);
+    }
 
     public void SetSummary(SaveCharacterData data)
     {
@@ -43,7 +56,14 @@ public class CharacterSummary : MonoBehaviour
             }
 
             weaponIcon.sprite = data.Weapon.ItemData.SpriteIcon;
+            weaponName.text = data.Weapon.ItemData.StringName;
             weaponValue.text = $"{DataTableManager.StringTable.Get(type)} : {sum}";
+        }
+        else
+        {
+            weaponIcon.sprite = null;
+            weaponName.text = string.Empty;
+            weaponValue.text = string.Empty;
         }
 
         summaryAttack.text = $"{DataTableManager.StringTable.Get("Attack")} : {sumAtk.ToString()}";
@@ -61,9 +81,18 @@ public class CharacterSummary : MonoBehaviour
     {
         characterIcon.sprite = null;
         characterName.text = string.Empty;
+
+        weaponIcon.sprite = null;
+        weaponName.text = string.Empty;
+        weaponValue.text = string.Empty;
+
         summaryAttack.text = string.Empty;
         summaryDefense.text = string.Empty;
-        weaponIcon.sprite = null;
-        weaponValue.text = string.Empty;
+    }
+
+    private void OpenInventory()
+    {
+        inventoryScroll.gameObject.SetActive(true);
+        inventoryScroll.character = characterData;
     }
 }

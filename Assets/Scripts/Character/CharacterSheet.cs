@@ -43,8 +43,14 @@ public class CharacterSheet : MonoBehaviour
         characterIcon.sprite = data.CharacterData.SpriteIcon;
         characterName.text = data.CharacterData.StringName;
 
-        if (data.Weapon == null) return;
-        weaponIcon.sprite = data.Weapon.ItemData.SpriteIcon;
+        if (data.Weapon == null)
+        {
+            weaponIcon.sprite = null;
+        }
+        else
+        {
+            weaponIcon.sprite = data.Weapon.ItemData.SpriteIcon;
+        }
     }
 
     public void SetEmpty()

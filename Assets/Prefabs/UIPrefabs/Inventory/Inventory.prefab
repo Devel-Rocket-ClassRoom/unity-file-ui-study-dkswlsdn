@@ -2020,7 +2020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UIPanelInventory
   sorting: {fileID: 1084918250731607176}
   filtering: {fileID: 1562308982577440066}
-  InventoryLoad: {fileID: 6383955759865347694}
+  InventoryLoad: {fileID: 0}
 --- !u!1 &3202897457719163263
 GameObject:
   m_ObjectHideFlags: 0
@@ -3136,7 +3136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4445231275491269904}
   - component: {fileID: 6151953851084839249}
-  - component: {fileID: 6383955759865347694}
+  - component: {fileID: 2146388929868657340}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -3184,7 +3184,7 @@ MonoBehaviour:
   m_FlexibleWidth: 1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &6383955759865347694
+--- !u!114 &2146388929868657340
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3193,18 +3193,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 4561969383235962214}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 778c6c4ac92b78d43aa9b8dbbfbf6f7d, type: 3}
+  m_Script: {fileID: 11500000, guid: 5cf3d46eeb7c2ab49a26056a764021d3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryLoad
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryLoad_Inventory
   button: {fileID: 8446115930750231926, guid: 1986b3d87f8c8fb49be7d9e71642d165, type: 3}
   inventory: {fileID: 4317826515643953290}
-  ItemDescription: {fileID: 5939325093478478813}
   onUpdateButton:
     m_PersistentCalls:
       m_Calls: []
   onSelectButton:
     m_PersistentCalls:
       m_Calls: []
+  ItemDescription: {fileID: 5939325093478478813}
 --- !u!1 &4923433115711754351
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,9 +24,6 @@ public class CharacterSheetManager : MonoBehaviour
         saveCharacterDataList = null;
     }
 
-
-
-
     void Load()
     {
         saveCharacterDataList =  SaveLoadManager.Data.CharacterDataList.ToList();
@@ -75,5 +72,11 @@ public class CharacterSheetManager : MonoBehaviour
     {
         saveCharacterDataList = list.ToList();
         Load();
+    }
+
+    public void RefreshAll()
+    {
+        Load();
+        summary.SetSummary();
     }
 }

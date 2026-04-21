@@ -8,16 +8,10 @@ public class InventoryLoad : MonoBehaviour
 {
     public InventoryButton button;
     public Transform inventory;
-    public ItemDescription ItemDescription;
 
-    private List<InventoryButton> buttonList = new List<InventoryButton>();
-    private List<SaveItemData> saveItemDataList = new List<SaveItemData>();
+    protected List<InventoryButton> buttonList = new List<InventoryButton>();
+    protected List<SaveItemData> saveItemDataList = new List<SaveItemData>();
 
-
-    private void Start()
-    {
-        onSelectButton.AddListener(SetDescription);
-    }
 
     private void OnEnable()
     {
@@ -77,13 +71,6 @@ public class InventoryLoad : MonoBehaviour
     {
         saveItemDataList = list.ToList();
         Load();
-    }
-
-    private void SetDescription(SaveItemData item)
-    {
-        if (ItemDescription == null || item == null) return;
-
-        ItemDescription.SetItemData(item);
     }
 
     public enum SortingOption
