@@ -6,24 +6,19 @@ using static UnityEditor.Progress;
 public class CharacterSheet : MonoBehaviour
 {
     public int sheetIndex;
-    [HideInInspector]
-    public Transform contentTransform;
+    //[HideInInspector]
+    public CharacterSummary summary;
 
     public SaveCharacterData character;
 
-    public CharacterSheet sheet;
+    public Button sheet;
     public Button unlockButton;
-    public Button weaponButton;
     public Button deleteButton;
     public Button protectButton;
 
     public Image characterIcon;
+    public Image weaponIcon;
     public TextMeshProUGUI characterName;
-    public TextMeshProUGUI characterAttack;
-    public TextMeshProUGUI characterDefense;
-    public TextMeshProUGUI WeaponName;
-    public TextMeshProUGUI WeaponAttack;
-    public TextMeshProUGUI WeaponDefense;
 
     public ScrollRect InventoryScrollPrefab;
     public GameObject[] gameObjects;
@@ -32,7 +27,7 @@ public class CharacterSheet : MonoBehaviour
     private void Awake()
     {
         unlockButton.onClick.AddListener(UnLock);
-        weaponButton.onClick.AddListener(OpenInventory);
+        sheet.onClick.AddListener(SetSummary);
     }
 
     public void Load()
@@ -49,9 +44,7 @@ public class CharacterSheet : MonoBehaviour
         characterName.text = data.CharacterData.StringName;
 
         if (data.Weapon == null) return;
-        weaponButton.GetComponent<Image>().sprite = data.Weapon.ItemData.SpriteIcon;
-        WeaponName.text = data.Weapon.ItemData.StringName ?? "무기 없음";
-        
+        weaponIcon.sprite = data.Weapon.ItemData.SpriteIcon;
     }
 
     public void SetEmpty()
@@ -62,6 +55,7 @@ public class CharacterSheet : MonoBehaviour
 
     public void RemoveData()
     {
+        summary.SetEmpty(character);
         SaveLoadManager.Data.CharacterDataList.Remove(character);
     }
 
@@ -74,23 +68,10 @@ public class CharacterSheet : MonoBehaviour
         Load();
     }
 
-    public void OpenInventory()
+    public void SetSummary()
     {
-
-    }
-
-    public void OpenCharacterSheet()
-    {
-        if (contentTransform.childCount < sheetIndex + 1)
-        {
-
-        }
-        else
-        {
-            contentTransform.GetChild(sheetIndex + 1).gameObject.SetActive(true);
-        }
-
-        Load();
+        if (character == null) return;
+        summary.SetSummary(character);
     }
 
     void ToggleLock(bool isUnlock)

@@ -7,6 +7,7 @@ public class CharacterSheetManager : MonoBehaviour
 {
     public CharacterSheet sheet;
     public Transform contentTransform;
+    public CharacterSummary summary;
 
     private List<CharacterSheet> sheetList = new List<CharacterSheet>();
     private List<SaveCharacterData> saveCharacterDataList = new List<SaveCharacterData>();
@@ -47,6 +48,7 @@ public class CharacterSheetManager : MonoBehaviour
                 newSheet.deleteButton.onClick.AddListener(newSheet.SetEmpty);
                 newSheet.deleteButton.onClick.AddListener(Load);
                 newSheet.unlockButton.onClick.AddListener(Load);
+                newSheet.summary = summary;
             }
         }
 
