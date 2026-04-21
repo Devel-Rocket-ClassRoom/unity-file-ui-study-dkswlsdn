@@ -27,3 +27,15 @@ Cost,코스트
 Weapon,무기
 Equip,장비
 Consumable,소모품
+NonConsumable,비소모품
+NoneFiltering,필터링 없음
+Save,저장
+Load,불러오기
+CreateItem,아이템 생성
+Remove,삭제
+TimeAscending,시간순 오름차
+TimeDescending,시간순 내림차
+NameAscending,이름순 오름차
+NameDescending,이름순 내림차
+TypeAscending,타입순 오름차
+TypeDescending,타입순 내림차

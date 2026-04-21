@@ -22,7 +22,7 @@ public class ItemDescription : ShowItemDescription
         instanceId.text = $"ID : {data.InstanceId.ToString()}";
         creationTime.text = $"Creation at : {data.CreationTime.ToString()}";
 
-        textType.text = string.Format(FormatCommon, DataTableManager.StringTable.Get("Type"), data.ItemData.Type);
+        textType.text = string.Format(FormatCommon, DataTableManager.StringTable.Get("Type"), DataTableManager.StringTable.Get(data.ItemData.Type.ToString()));
         textValue.text = string.Format(FormatCommon, DataTableManager.StringTable.Get("Value"), data.ItemData.Value);
         textCost.text = string.Format(FormatCommon, DataTableManager.StringTable.Get("Cost"), data.ItemData.Cost);
     }
@@ -32,5 +32,18 @@ public class ItemDescription : ShowItemDescription
         ItemData itemData = DataTableManager.ItemTable.Get(id);
         newItem.ItemData = itemData;
         SetItemData(itemData);
+    }
+
+    public void SetEmpty()
+    {
+        image.sprite = null;
+        text.ChangeText(string.Empty);
+        desc.ChangeText(string.Empty);
+        instanceId.text = string.Empty;
+        creationTime.text = string.Empty;
+
+        textType.text = string.Empty;
+        textValue.text = string.Empty;
+        textCost.text = string.Empty;
     }
 }

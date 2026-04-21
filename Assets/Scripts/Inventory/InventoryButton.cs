@@ -4,11 +4,11 @@ using UnityEngine.UI;
 
 public class InventoryButton : MonoBehaviour
 {
-    [HideInInspector]
-    public ItemDescription ItemDescription;
     public Image icon;
     public TextMeshProUGUI itemName;
     public SaveItemData item { get; private set; }
+    public int slotIndex;
+    public Button button;
 
 
     private void Awake()
@@ -34,8 +34,6 @@ public class InventoryButton : MonoBehaviour
 
     private void SelectItem()
     {
-        if (ItemDescription == null || item == null) return;
-
-        ItemDescription.SetItemData(item);
+        
     }
 }

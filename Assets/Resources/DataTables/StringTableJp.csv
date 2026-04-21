@@ -1,29 +1,41 @@
 ﻿Id,String
 , 
-HELLO,やあ
-BYE,じゃあな
-YOU DIE,あなたは死ぬ
+HELLO,こんにちは
+BYE,さようなら
+YOU DIE,死亡
 Item1Name,剣
 Item2Name,盾
 Item3Name,弓
 Item4Name,ポーション
-Item1Desc,これは剣だ。
-Item2Desc,これは盾だ。
-Item3Desc,これは弓だ。
-Item4Desc,これはポーションだ。
+Item1Desc,これは剣です。
+Item2Desc,これは盾です。
+Item3Desc,これは弓です。
+Item4Desc,これはポーションです。
 Character1Name,ウィリアム
 Character2Name,クリス
 Character3Name,アリス
 Character4Name,タラ
-Character1Desc,彼は戦士だ。
-Character2Desc,彼は射手だ。
-Character3Desc,彼女は魔法使いだ。
-Character4Desc,彼女はタンカーです。
+Character1Desc,戦士です。
+Character2Desc,弓使いです。
+Character3Desc,魔法使いです。
+Character4Desc,タンカーです。
 Attack,攻撃力
 Defense,防御力
 Type,タイプ
-Equip,装備する
-Cost,料金
+Value,バリュー
+Cost,コスト
 Weapon,武器
-Value,価値
+Equip,装備
 Consumable,消耗品
+NonConsumable,非消耗品
+NoneFiltering,フィルターなし
+Save,保存
+Load,読み込み
+CreateItem,アイテム作成
+Remove,削除
+TimeAscending,時間順 昇順
+TimeDescending,時間順 降順
+NameAscending,名前順 昇順
+NameDescending,名前順 降順
+TypeAscending,タイプ順 昇順
+TypeDescending,タイプ順 降順

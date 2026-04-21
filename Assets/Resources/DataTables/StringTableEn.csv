@@ -1,8 +1,8 @@
 ﻿Id,String
 , 
-HELLO,Hello~
-BYE,Bye~
-YOU DIE,You Die...
+HELLO,Hello
+BYE,Goodbye
+YOU DIE,You Died
 Item1Name,Sword
 Item2Name,Shield
 Item3Name,Bow
@@ -15,15 +15,27 @@ Character1Name,William
 Character2Name,Chris
 Character3Name,Alice
 Character4Name,Tara
-Character1Desc,He is worrior.
-Character2Desc,He is archer.
-Character3Desc,She is wizard.
-Character4Desc,She is tank.
-Attack,Attack
-Defense,Defense
+Character1Desc,A warrior.
+Character2Desc,An archer.
+Character3Desc,A mage.
+Character4Desc,A tanker.
+Attack,ATK
+Defense,DEF
 Type,Type
 Value,Value
 Cost,Cost
 Weapon,Weapon
-Equip,Equip
+Equip,Equipment
 Consumable,Consumable
+NonConsumable,Non-Consumable
+NoneFiltering,No Filter
+Save,Save
+Load,Load
+CreateItem,Create Item
+Remove,Remove
+TimeAscending,Time Ascending
+TimeDescending,Time Descending
+NameAscending,Name Ascending
+NameDescending,Name Descending
+TypeAscending,Type Ascending
+TypeDescending,Type Descending

@@ -16,4 +16,12 @@ public class SaveItemData
         InstanceId = Guid.NewGuid();
         CreationTime = DateTime.Now;
     }
+
+    public static SaveItemData GetRandomItem()
+    {
+        var newItem = new SaveItemData();
+        var item = DataTableManager.ItemTable.GetRandom();
+        newItem.ItemData = item;
+        return newItem;
+    }
 }

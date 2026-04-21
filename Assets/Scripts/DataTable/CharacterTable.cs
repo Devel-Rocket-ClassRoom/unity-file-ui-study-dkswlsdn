@@ -35,6 +35,26 @@ public class CharacterTable : DataTable
 
         return table[id];
     }
+
+    public CharacterData GetRandom()
+    {
+        string id = ids[Random.Range(0, ids.Length)];
+
+        if (!table.ContainsKey(id))
+        {
+            return null;
+        }
+
+        return table[id];
+    }
+
+    private readonly string[] ids =
+    {
+        "Character1",
+        "Character2",
+        "Character3",
+        "Character4",
+    };
 }
 
 public class CharacterData

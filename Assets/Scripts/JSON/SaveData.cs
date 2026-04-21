@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 [System.Serializable]
 public abstract class SaveData
@@ -64,7 +65,7 @@ public class SaveDataV3 : SaveData
         {
             SaveItemData itemData = new SaveItemData();
             itemData.ItemData = DataTableManager.ItemTable.Get(item);
-            nextVersion.ItemId.Add(itemData);
+            nextVersion.ItemDataList.Add(itemData);
         }
 
         return nextVersion;
@@ -74,11 +75,35 @@ public class SaveDataV3 : SaveData
 [System.Serializable]
 public class SaveDataV4 : SaveDataV2
 {
-    public List<SaveItemData> ItemId = new List<SaveItemData>();
+    public List<SaveItemData> ItemDataList = new List<SaveItemData>();
 
     public SaveDataV4()
     {
         Version = 4;
+    }
+    public override SaveData VersionUp()
+    {
+        var nextVersion = new SaveDataV5();
+        nextVersion.Name = Name;
+        nextVersion.Gold = Gold;
+
+        foreach (var item in ItemDataList)
+        {
+            nextVersion.ItemDataList.Add(item);
+        }
+
+        return nextVersion;
+    }
+}
+
+[System.Serializable]
+public class SaveDataV5 : SaveDataV4
+{
+    public List<SaveCharacterData> CharacterDataList = new List<SaveCharacterData>();
+
+    public SaveDataV5()
+    {
+        Version = 5;
     }
     public override SaveData VersionUp()
     {

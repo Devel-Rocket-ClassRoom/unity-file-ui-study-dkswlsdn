@@ -1,5 +1,5 @@
 using UnityEngine;
-using SaveDataVC = SaveDataV4;
+using SaveDataVC = SaveDataV5;
 using Newtonsoft.Json;
 using System.IO;
 using System;
@@ -21,8 +21,16 @@ public static class SaveLoadManager
         "Save2",
         "Save3",
     };
-    public static int SaveDataVersion { get; } = 4;
+    public static int SaveDataVersion { get; } = 5;
     public static SaveDataVC Data { get; set; } = new SaveDataVC();
+
+    static SaveLoadManager()
+    {
+        if (!Load())
+        {
+            Save();
+        }
+    }
 
     private static JsonSerializerSettings settings = new JsonSerializerSettings()
     {
@@ -78,7 +86,7 @@ public static class SaveLoadManager
 
         if (!File.Exists(path))
         {
-            return false;
+            return Save();
         }
 
         try

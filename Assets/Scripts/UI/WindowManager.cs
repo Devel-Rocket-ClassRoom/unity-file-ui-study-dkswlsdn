@@ -1,8 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class WindowManager : MonoBehaviour
 {
     public GenericWindow[] windows;
+    [HideInInspector]
+    public static Stack<GenericWindow> WindowStack = new Stack<GenericWindow>();
 
     public int currentWindowId;
     public int defaultWindowId;
@@ -12,6 +15,7 @@ public class WindowManager : MonoBehaviour
     {
         foreach (var window in windows)
         {
+            if (window == null) continue;
             window.gameObject.SetActive(false);
             window.Init(this);
         }
@@ -32,5 +36,5 @@ public class WindowManager : MonoBehaviour
 
 public enum Window
 {
-    Title, GameOver, NewGame, Difficulty
+    OpenMenu, Title, GameOver, NewGame, Difficulty, MainMenu, Character, Inventory,
 }
