@@ -1,53 +1,32 @@
 using TMPro;
 using UnityEngine;
 
-public class UIPanelInventory : MonoBehaviour
+public class CharacterSort : MonoBehaviour
 {
     public TMP_Dropdown sorting;
     public TMP_Dropdown filtering;
-    public InventoryLoad InventoryLoad;
+    public CharacterSheetManager manager;
 
 
 
 
     private void OnEnable()
     {
-        InventoryLoad.SetItemDataList(SaveLoadManager.Data.ItemDataList);
+        manager.SetCharacterDataList(SaveLoadManager.Data.CharacterDataList);
         OnSortingValueChange(sorting.value);
         OnFilteringValueChange(filtering.value);
     }
 
     public void OnSortingValueChange(int i)
     {
-        InventoryLoad.Sorting = (InventoryLoad.SortingOption)i;
+        manager.Sorting = (CharacterSheetManager.CharacterSortingOption)i;
     }
 
     public void OnFilteringValueChange(int i)
     {
-        InventoryLoad.Filtering = (InventoryLoad.FilteringOption)i;
+        manager.Filtering = (CharacterSheetManager.CharacterFilteringOption)i;
     }
 
-    public void OnSave()
-    {
-        SaveLoadManager.Data.ItemDataList = InventoryLoad.GetSaveItemDataList();
-        SaveLoadManager.Save();
-    }
-
-    public void OnLoad()
-    {
-        SaveLoadManager.Load();
-        InventoryLoad.SetItemDataList(SaveLoadManager.Data.ItemDataList);
-    }
-
-    public void OnCreateItem()
-    {
-        InventoryLoad.AddRandomItem();
-    }
-
-    public void OnRemoveItem()
-    {
-        InventoryLoad.RemoveItem();
-    }
 
     public void SaveSortingFilteringSetting()
     {

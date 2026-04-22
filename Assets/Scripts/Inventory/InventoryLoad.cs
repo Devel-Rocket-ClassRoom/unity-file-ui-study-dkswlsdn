@@ -26,7 +26,7 @@ public class InventoryLoad : MonoBehaviour
 
 
 
-    void Load()
+    protected virtual void Load()
     {
         var list = saveItemDataList.Where(filter[(int)filtering]).ToList();
         list.Sort(comparison[(int)sorting]);
@@ -107,8 +107,8 @@ public class InventoryLoad : MonoBehaviour
         (x) => x.ItemData.Type != ItemTypes.Consumable,
     };
 
-    private SortingOption sorting = SortingOption.TimeAscending;
-    private FilteringOption filtering = FilteringOption.NoneFiltering;
+    protected SortingOption sorting = SortingOption.TimeAscending;
+    protected FilteringOption filtering = FilteringOption.NoneFiltering;
     
 
     public SortingOption Sorting
@@ -131,7 +131,7 @@ public class InventoryLoad : MonoBehaviour
         }
     }
 
-    private int selectedButtonIndex = -1;
+    protected int selectedButtonIndex = -1;
     public UnityEvent onUpdateButton;
     public UnityEvent<SaveItemData> onSelectButton;
 

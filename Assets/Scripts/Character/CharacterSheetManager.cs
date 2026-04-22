@@ -27,8 +27,8 @@ public class CharacterSheetManager : MonoBehaviour
     void Load()
     {
         saveCharacterDataList =  SaveLoadManager.Data.CharacterDataList.ToList();
-        var list = saveCharacterDataList;
-        Debug.Log(list.Count);
+        var list = saveCharacterDataList.Where(filter[(int)filtering]).ToList();
+        list.Sort(comparison[(int)sorting]);
 
         if (sheetList.Count < list.Count + 1)
         {
@@ -51,7 +51,6 @@ public class CharacterSheetManager : MonoBehaviour
 
         for (int i = 0; i < list.Count; i++)
         {
-            Debug.Log(list[i].CharacterData.StringName);
             if (i < list.Count)
             {
                 sheetList[i].Load(list[i]);
@@ -78,5 +77,75 @@ public class CharacterSheetManager : MonoBehaviour
     {
         Load();
         summary.SetSummary();
+    }
+
+    public enum CharacterSortingOption
+    {
+        TimeAscending,
+        TimeDescending,
+        NameAscending,
+        NameDescending,
+        WeaponNameAscending,
+        WeaponNameDescending,
+    }
+
+    public enum CharacterFilteringOption
+    {
+        NoneFiltering, Worrior, Tank, Archor, Wizard
+    }
+
+    public readonly System.Comparison<SaveCharacterData>[] comparison =
+    {
+        (lhs, rhs) => lhs.CreationTime.CompareTo(rhs.CreationTime),
+        (lhs, rhs) => rhs.CreationTime.CompareTo(lhs.CreationTime),
+        (lhs, rhs) => lhs.CharacterData.StringName.CompareTo(rhs.CharacterData.StringName),
+        (lhs, rhs) => rhs.CharacterData.StringName.CompareTo(lhs.CharacterData.StringName),
+        (lhs, rhs) =>
+        {
+            if (lhs.Weapon == rhs.Weapon) return 0;
+            if (lhs.Weapon == null) return 1;
+            if (rhs.Weapon == null) return -1;
+            return lhs.Weapon.ItemData.Type.ToString().CompareTo(rhs.Weapon.ItemData.Type.ToString());
+        },
+        (lhs, rhs) =>
+        {
+            if (lhs.Weapon == rhs.Weapon) return 0;
+            if (lhs.Weapon == null) return -1;
+            if (rhs.Weapon == null) return 1;
+            return rhs.Weapon.ItemData.Type.ToString().CompareTo(lhs.Weapon.ItemData.Type.ToString());
+        }
+    };
+
+    public readonly System.Func<SaveCharacterData, bool>[] filter =
+    {
+        (x) => true,
+        (x) => x.CharacterData.StringName == DataTableManager.CharacterTable.Get("Character1").StringName,
+        (x) => x.CharacterData.StringName == DataTableManager.CharacterTable.Get("Character2").StringName,
+        (x) => x.CharacterData.StringName == DataTableManager.CharacterTable.Get("Character3").StringName,
+        (x) => x.CharacterData.StringName == DataTableManager.CharacterTable.Get("Character4").StringName,
+    };
+
+    protected CharacterSortingOption sorting = CharacterSortingOption.TimeAscending;
+    protected CharacterFilteringOption filtering = CharacterFilteringOption.NoneFiltering;
+
+
+    public CharacterSortingOption Sorting
+    {
+        get => sorting;
+        set
+        {
+            if (sorting == value) return;
+            sorting = value; Load();
+        }
+    }
+
+    public CharacterFilteringOption Filtering
+    {
+        get => filtering;
+        set
+        {
+            if (filtering == value) return;
+            filtering = value; Load();
+        }
     }
 }
