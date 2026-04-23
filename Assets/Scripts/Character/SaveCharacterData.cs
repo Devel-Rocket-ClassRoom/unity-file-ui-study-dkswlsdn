@@ -5,6 +5,8 @@ using UnityEngine;
 public class SaveCharacterData
 {
     public Guid InstanceId { get; set; }
+
+    [JsonConverter(typeof(CharacterConverter))]
     public CharacterData CharacterData { get; set; }
     public SaveItemData Weapon { get; set; }
     public DateTime CreationTime { get; set; }

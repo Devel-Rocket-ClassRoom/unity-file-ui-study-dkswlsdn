@@ -13,7 +13,7 @@ public class GenericWindow : MonoBehaviour
     {
         if (closeButton != null)
         {
-            closeButton.onClick.AddListener(Close);
+            closeButton.onClick.AddListener(CloseAllWindow);
         }
     }
 
@@ -32,6 +32,11 @@ public class GenericWindow : MonoBehaviour
     {
 
         gameObject.SetActive(false);
+    }
+
+    public void CloseAllWindow()
+    {
+        windowManager.Open((int)Window.OpenMenu);
     }
 
     public virtual void Back()

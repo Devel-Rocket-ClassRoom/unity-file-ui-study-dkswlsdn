@@ -63,6 +63,7 @@ public class CharacterSheet : MonoBehaviour
     {
         summary.SetEmpty(character);
         SaveLoadManager.Data.CharacterDataList.Remove(character);
+        SaveLoadManager.Save();
     }
 
     public void UnLock()
@@ -71,6 +72,7 @@ public class CharacterSheet : MonoBehaviour
 
         character = SaveCharacterData.GetRandomCharacter();
         SaveLoadManager.Data.CharacterDataList.Add(character);
+        SaveLoadManager.Save();
         Load();
     }
 

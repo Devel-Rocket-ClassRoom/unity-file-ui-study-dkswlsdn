@@ -69,5 +69,6 @@ public class InventoryLoad_Character : InventoryLoad
 
         manager.RefreshAll();
         gameObject.SetActive(false);
+        SaveLoadManager.Save();
     }
 }
